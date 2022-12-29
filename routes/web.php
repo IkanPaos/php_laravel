@@ -15,36 +15,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home',[
+    'role' => 'admin',
+    'name' => 'wwolololololololol',
+    'buah' => ['hati','tangan','bibir']
+    ]);
 });
 
 Route::get('/about', function () {
-    return 'ngggeennnngggg';
-});
-
-Route::get('/contact', function () {
-    return view('contact', ['name' => 'tono', 'phone' => '918571982']);
-});
-
-Route::view('/contact', 'contact', ['name' => 'tono', 'phone' => '918571982']);
-
-Route::redirect('/contact', '/contact=us', 301);
-
-Route::get('/product/{id}', function($id)
-{
-    return view('detail',['id' => $id]);
-});
-
-Route::prefix('admin')->group(function(){
-    Route::get('/profile-admin', function () {
-        return 'profil admin';
-    });
-    
-    Route::get('/about-admin', function () {
-        return 'about admin';
-    });
-    
-    Route::get('/contact-admin', function () {
-        return 'contact admin';
-    });
+    return view('about');
 });
